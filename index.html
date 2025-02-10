@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #no {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ser mi San Valentín? ❤️</h1>
+        <div class="buttons">
+            <button onclick="alert('¡Sabía que dirías que sí! ❤️😍')">Sí</button>
+            <button id="no" onmouseover="moverBoton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moverBoton() {
+            let botonNo = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - botonNo.clientWidth);
+            let y = Math.random() * (window.innerHeight - botonNo.clientHeight);
+            botonNo.style.left = `${x}px`;
+            botonNo.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
