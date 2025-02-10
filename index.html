@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi San Valentín?</title>
+    <title>Confirmación</title>
     <style>
         body {
             text-align: center;
@@ -24,13 +24,18 @@
             margin: 10px;
             cursor: pointer;
         }
-        #no {
-            position: absolute;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="step1">
+        <h1>¿Tú eres Kenya Jacobo? 😊</h1>
+        <div class="buttons">
+            <button onclick="mostrarPregunta()">Sí</button>
+            <button onclick="alert('¡Mentirosita, sí eres! 😆')">No</button>
+        </div>
+    </div>
+    
+    <div class="container" id="step2" style="display: none;">
         <h1>¿Quieres ser mi San Valentín? ❤️</h1>
         <div class="buttons">
             <button onclick="alert('¡Sabía que dirías que sí! ❤️😍')">Sí</button>
@@ -39,10 +44,16 @@
     </div>
 
     <script>
+        function mostrarPregunta() {
+            document.getElementById("step1").style.display = "none";
+            document.getElementById("step2").style.display = "block";
+        }
+
         function moverBoton() {
             let botonNo = document.getElementById("no");
             let x = Math.random() * (window.innerWidth - botonNo.clientWidth);
             let y = Math.random() * (window.innerHeight - botonNo.clientHeight);
+            botonNo.style.position = "absolute";
             botonNo.style.left = `${x}px`;
             botonNo.style.top = `${y}px`;
         }
